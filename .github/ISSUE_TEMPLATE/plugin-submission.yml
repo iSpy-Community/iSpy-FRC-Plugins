@@ -1,0 +1,85 @@
+name: Plugin Submission
+description: Submit a community plugin for consideration in the iSpy-FRC directory
+title: "[Plugin Submission]: "
+labels:
+  - plugin-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting a plugin! Please provide accurate information.
+        Submissions are reviewed before being listed. A submission is not an endorsement or security guarantee.
+
+  - type: input
+    id: plugin_name
+    attributes:
+      label: Plugin name
+      description: What is the plugin called?
+      placeholder: Example Plugin
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Explain what the plugin does and what problem it solves.
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Public source repository
+      description: Link to the repository containing the plugin source code.
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+
+  - type: input
+    id: documentation
+    attributes:
+      label: Documentation or installation instructions
+      description: Link to the plugin's documentation.
+    validations:
+      required: true
+
+  - type: input
+    id: compatibility
+    attributes:
+      label: Supported iSpy-FRC versions
+      description: List tested versions, or explicitly state that compatibility has not yet been verified.
+    validations:
+      required: true
+
+  - type: textarea
+    id: permissions
+    attributes:
+      label: Permissions and external access
+      description: Describe access to files, credentials, cameras, networks, APIs, and external services.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maintenance
+    attributes:
+      label: Maintenance status
+      options:
+        - Actively maintained
+        - Maintained occasionally
+        - Experimental
+        - Archived
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Submission confirmations
+      options:
+        - label: I have reviewed the contribution guidelines.
+          required: true
+        - label: I have accurately described the plugin's functionality and permissions.
+          required: true
+        - label: I understand that listing does not guarantee the plugin is safe or endorsed by iSpy-FRC.
+          required: true
