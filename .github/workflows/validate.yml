@@ -1,6 +1,14 @@
 name: Validate Plugin Directory
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'plugins/**'
+      - 'PLUGIN_TEMPLATE.md'
+      - '.github/workflows/validate.yml'
   pull_request:
     paths:
       - 'README.md'
