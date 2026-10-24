@@ -1,0 +1,58 @@
+name: Validate Plugin Directory
+
+on:
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'plugins/**'
+      - 'PLUGIN_TEMPLATE.md'
+      - '.github/workflows/validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate directory changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check README and template exist
+        run: |
+          test -f README.md
+          test -f PLUGIN_TEMPLATE.md
+
+      - name: Check plugin listing links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          files = [Path("README.md"), Path("PLUGIN_TEMPLATE.md")]
+          failed = False
+
+          for path in files:
+              text = path.read_text(encoding="utf-8")
+              if "PLUGIN_REPOSITORY_URL" in text and path.name == "README.md":
+                  print(f"ERROR: Placeholder found in {path}")
+                  failed = True
+
+              for match in re.finditer(r'\]\(([^)]+)\)', text):
+                  url = match.group(1)
+                  if url.startswith(("http://", "https://", "#", "mailto:")):
+                      continue
+                  if url.startswith("PLUGIN_") or url.endswith("_URL"):
+                      continue
+                  target = (path.parent / url).resolve()
+                  if not target.exists():
+                      print(f"ERROR: Broken local link in {path}: {url}")
+                      failed = True
+
+          if failed:
+              sys.exit(1)
+
+          print("Basic directory checks passed.")
+          PY
