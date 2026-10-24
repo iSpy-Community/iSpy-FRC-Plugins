@@ -10,6 +10,20 @@ Thank you for helping grow the iSpy-FRC plugin ecosystem! This directory helps u
 - Submissions are reviewed before they are added to the directory.
 - Listing a plugin does not mean that iSpy-FRC guarantees its safety or functionality.
 
+## Contributor Rights and Licensing
+
+The iSpy-FRC community plugin directory is intended to help developers share their work while maintaining control of their own projects.
+
+- **You maintain your own project.** Community plugins remain in their respective developers' repositories. Submitting a listing does not transfer ownership of your plugin to the maintainers of this directory.
+- **You receive credit for your work.** Plugin listings link directly to their source repositories and identify the projects being shared.
+- **You control your plugin's development.** You are responsible for its releases, maintenance, documentation, and licensing.
+- **Review does not transfer ownership.** Reviewing, accepting, or removing a directory listing does not, by itself, transfer ownership of the underlying plugin.
+- **Check licensing before contributing to core.** Contributions directly to the iSpy-FRC core project are subject to the applicable contribution terms and project license. Review those terms before submitting substantial changes.
+
+The core iSpy-FRC project uses the PolyForm Noncommercial license. This affects the permissions granted to users of the core project and should not be interpreted as a blanket license for every independently maintained community plugin.
+
+We want developers to be able to contribute meaningfully, receive appropriate recognition, and understand the terms under which their work is shared. If a contribution requires additional licensing permissions, those requirements should be explained before the contributor is asked to agree to them.
+
 ## Requirements for Listed Plugins
 
 Before submitting a plugin, make sure it meets these requirements.
